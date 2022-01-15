@@ -1,0 +1,341 @@
+﻿@model novaSoft.Models.Eleve
+@using novaSoft.Models
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div style=" height:200px; width:100%; background:#d5d8dc; display:flex; flex-direction:row">
+
+
+    <div style=" height:100px; width:100%; background:#d5d8dc; display:flex; justify-content:space-between">
+        <div style=" height:100px; width:200px; left:0px">
+
+            <h2 style="margin-left:25px; color: #000">Inscription</h2>
+            <h4 style="margin-left:25px; color: #000 ">Elève</h4>
+        </div>
+
+        <div style="background:white; height:200px; width:200px">
+            <br />
+            <h2 style="margin-left:25px; color: #000; letter-spacing: 10px">LogO </h2>
+        </div>
+    </div>
+
+    <div id="profilPhotoEl" style="width:200px; height: 170px; background:#fefca4; margin:50px;margin-top:15px;">
+        <p>Photo de l'élève</p>
+    </div>
+
+</div>
+
+
+<div style="background:white; overflow-y: scroll; width:100%; height:75vh; ">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <br /> <br /> <br />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div style="display:flex; justify-content:space-between; flex-direction:column">
+
+                <div style="display: flex; flex-direction:column; background:white; box-shadow: 1px 1px 15px;border-radius:5px; width: 100%; height: 100vh;">
+                    <br /><br />
+                    <!--<div style="background:red; height:300px; width:100%;">-->
+                    @*<div id="profilPhotoEl" style="width:170px; height: 200px; background:#fefca4; margin:50px;">
+
+                        </div>*@
+                    <!--</div>-->
+                    <hr />
+                    <div style="background:white; height:500px; width:100%; ">
+                        <h4 style="margin:25px;">Informations sur l'élève</h4>
+                        <div style="display:flex; flex-direction:row; justify-content:space-around;background:white; height:10vh; width:100%;">
+
+                            <div class="" style=" width:350px;">
+                                <label>Nom*</label><br />
+                                @Html.EditorFor(model => model.eleveName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.eleveName, null, new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="" style="width:350px;">
+                                <label class="">Prénom*</label><br />
+                                @Html.EditorFor(model => model.eleveFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.eleveFirstName, null, new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="" style=" width:350px;">
+                                <label class="">Nom d'utilisateur</label>
+                                @Html.EditorFor(model => model.eleveUserName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.eleveUserName, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div><br />
+
+                        <div style="display:flex;
+                                flex-direction:row;
+                                justify-content:space-around;
+                                background:white;
+                                height:10vh;
+                                width:100%;">
+                            <div class="" style=" width:350px;">
+                                <label class="">Adresse*</label>
+                                @Html.EditorFor(model => model.eleveAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.eleveAddress, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="" style=" width:350px;">
+                                <label class="">Lieu de naissance*</label>
+                                @Html.EditorFor(model => model.elevePlaceOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.elevePlaceOfBirth, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width:350px;">
+                                <label class="">Numéro de téléphone</label>
+                                @Html.EditorFor(model => model.elevePhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.elevePhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+
+
+                        </div>
+
+                        <br />
+                        <div style="display: flex; flex-direction: row; justify-content: space-around; background: white; height: 10vh; width: 100%;">
+
+                            <div class="" style=" width: 350px;">
+                                <label class="">Classe*</label><br />
+                                @Html.DropDownListFor(model => model.eleveClasse, new List<SelectListItem>
+                           {
+                               new SelectListItem{Text="CP1", Value="CP1"},
+                               new SelectListItem{Text="CP2", Value="CP2"},
+                               new SelectListItem{Text="CE1", Value="CE1"},
+                               new SelectListItem{Text="CE2", Value="CE2"},
+                               new SelectListItem{Text="CM1", Value="CM1"},
+                               new SelectListItem{Text="CM2", Value="CM2"},
+                               new SelectListItem{Text="6eme", Value="6eme"},
+                               new SelectListItem{Text="5eme", Value="5eme"},
+                               new SelectListItem{Text="4eme", Value="4eme"},
+                               new SelectListItem{Text="3eme", Value="3eme"},
+                               new SelectListItem{Text="2nd", Value="2nd"},
+                               new SelectListItem{Text="1ere", Value="1ere"},
+                               new SelectListItem{Text="Terminale", Value="Terminale"}
+
+                           }, "Classe")
+                                @* @Html.EditorFor(model => model.eleveClasse, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.eleveClasse, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="" style=" width: 350px;">
+                                <label class="">Sexe*</label><br />
+                                Masculin
+                                @Html.RadioButtonFor(model => model.eleveSexe, "M")
+                                Feminin
+                                @Html.RadioButtonFor(model => model.eleveSexe, "F")
+                                @*@Html.EditorFor(model => model.eleveSexe, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.eleveSexe, "", new { @class = "text-danger" })
+                            </div>
+
+
+
+                            <div class="" style=" width: 350px;">
+                                <label class="">Série*</label>
+                                @*@Html.EditorFor(model => model.eleveSerie, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownListFor(model => model.eleveSerie, new List<SelectListItem>
+                           {
+                                    new SelectListItem { Text = "A", Value = "A" },
+                               new SelectListItem { Text = "C", Value = "C" },
+                               new SelectListItem { Text = "D", Value = "D" },
+                               new SelectListItem { Text = "G1", Value = "G1" },
+                               new SelectListItem { Text = "G2", Value = "G2" },
+                               new SelectListItem { Text = "G3", Value = "G3" },
+                               new SelectListItem { Text = "BG", Value = "BG" },
+                               new SelectListItem { Text = "Maternelle", Value = "Maternelle" },
+                               new SelectListItem { Text = "Primaire", Value = "Primaire" },
+                               new SelectListItem { Text = "College", Value = "College"}
+
+                           }, "Serie ou Cycle")
+                                @Html.ValidationMessageFor(model => model.eleveSerie, null, new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div style="background:#fff98f;  width:100%;height:100vh;margin-top:35px;">
+                    <h4 style="margin:25px;">Informations sur les parents</h4>
+
+                    <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between">
+
+                        <div>
+                            <label style="margin-left: 15px;">Fils de Mr</label><br />
+                        </div>
+
+
+                        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-between;margin-top:15px; padding-left:15px;">
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveDadName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nom du père" } })
+                                @Html.ValidationMessageFor(model => model.eleveDadName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveDadFirstname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Prénom du père" } })
+                                @Html.ValidationMessageFor(model => model.eleveDadFirstname, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveDadCinNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "CIN du père" } })
+                                @Html.ValidationMessageFor(model => model.eleveDadCinNum, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-between;margin-top:15px; padding-left:15px;">
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveDadProfession, new { htmlAttributes = new { @class = "form-control", @placeholder = "Profession du père" } })
+                                @Html.ValidationMessageFor(model => model.eleveDadProfession, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveDadResidence, new { htmlAttributes = new { @class = "form-control", @placeholder = "Adresse du père" } })
+                                @Html.ValidationMessageFor(model => model.eleveDadResidence, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveDadPhoneNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numéro de téléphone du père" } })
+                                @Html.ValidationMessageFor(model => model.eleveDadPhoneNum, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+
+                        <div>
+                            <label style="margin-left:15px; margin-top:25px">Et de </label><br />
+                        </div>
+
+                        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-between;margin-top:15px; padding-left:15px;">
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveMomName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nom de la mère" } })
+                                @Html.ValidationMessageFor(model => model.eleveMomName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+
+                                @Html.EditorFor(model => model.eleveMomFirstname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Prénom de la mère" } })
+                                @Html.ValidationMessageFor(model => model.eleveMomFirstname, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+
+                                @Html.EditorFor(model => model.eleveMomCinNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "CIN de la mère" } })
+                                @Html.ValidationMessageFor(model => model.eleveMomCinNum, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-between;margin-top:15px; padding-left:15px;">
+                            <div style=" width: 350px;">
+
+                                @Html.EditorFor(model => model.eleveMomProfession, new { htmlAttributes = new { @class = "form-control", @placeholder = "Profession de la mère" } })
+                                @Html.ValidationMessageFor(model => model.eleveMomProfession, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveMomResidence, new { htmlAttributes = new { @class = "form-control", @placeholder = "Résidence de la mère" } })
+                                @Html.ValidationMessageFor(model => model.eleveMomResidence, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @Html.EditorFor(model => model.eleveMomPhoneNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numéro de téléphone de la mère" } })
+                                @Html.ValidationMessageFor(model => model.eleveMomPhoneNum, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <label style="margin-left:15px; margin-top:25px">Sous la Tutel de </label><br />
+                        </div>
+
+                        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-between;margin-top:15px; padding-left:15px;">
+                            <div style=" width: 350px;">
+                                @*<input class="form-control" type="text" placeholder="Nom(s)" />*@
+                                @Html.EditorFor(model => model.eleveTutorName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nom du tuteur" } })
+                                @Html.ValidationMessageFor(model => model.eleveTutorName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @* <input class="form-control" type="text" placeholder="Prénom(s)" />*@
+                                @Html.EditorFor(model => model.eleveTutorFirstname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Prénom du tuteur" } })
+                                @Html.ValidationMessageFor(model => model.eleveTutorFirstname, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @*<input class="form-control" type="text" placeholder="CNI ou Passeport" />*@
+                                @Html.EditorFor(model => model.eleveTutorCinNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numéro de la carte CIN du tuteur" } })
+                                @Html.ValidationMessageFor(model => model.eleveTutorCinNum, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-between;margin-top:15px; padding-left:15px;">
+                            <div style=" width: 350px;">
+                                @*<input class="form-control" type="text" placeholder="Profession" />*@
+                                @Html.EditorFor(model => model.eleveTutorProfession, new { htmlAttributes = new { @class = "form-control", @placeholder = "Profession du tuteur" } })
+                                @Html.ValidationMessageFor(model => model.eleveTutorProfession, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @*<input class="form-control" type="text" placeholder="Lieu de résidence" />*@
+                                @Html.EditorFor(model => model.eleveTutorResidence, new { htmlAttributes = new { @class = "form-control", @placeholder = "Résidence du tuteur" } })
+                                @Html.ValidationMessageFor(model => model.eleveTutorResidence, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div style=" width: 350px;">
+                                @*<input class="form-control" type="text" placeholder="Numéro de téléphone" />*@
+                                @Html.EditorFor(model => model.eleveTutorPhoneNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "Téléphone du tuteur" } })
+                                @Html.ValidationMessageFor(model => model.eleveTutorPhoneNum, "", new { @class = "text-danger" })
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="form-group" style="margin-top:50px;">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Inscrire" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+
+@*
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+*@

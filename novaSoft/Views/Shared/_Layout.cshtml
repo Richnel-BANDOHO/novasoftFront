@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="background:#f7f7f7;">
+   @* <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+    <div class="container body-content">
+        @RenderBody()
+
+        @*<hr />*@
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - Mon application ASP.NET</p>
+        </footer>*@
+
+        <div class="divMenu">
+            <div style="margin-top:120px;height:50vh; display:flex;flex-direction:column;justify-content:space-around;background:transparent; ">
+
+                <div class="btn-menu">
+
+                    @* Menu = Acceuil*@
+                    <p class="btnText">Acceuil</p>
+
+                    <a href="https://localhost:44312/" id="icnMenu" class="btnMenuLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-menu-app" viewBox="0 0 16 16">
+                            <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h2A1.5 1.5 0 0 1 5 1.5v2A1.5 1.5 0 0 1 3.5 5h-2A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z " />
+                        </svg>
+                    </a>
+
+                </div>
+
+                <div class="btn-menu">
+
+                    <p class="btnText">Inscription</p>
+                    <a href="https://localhost:44312/Eleve/Create" id="icnInscrip" class="btnMenuLeft">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                        </svg>
+                    </a>
+                </div>
+
+
+                <div class="btn-menu">
+
+                    <p class="btnText">Liste</p>
+                    <a href="https://localhost:44312/Eleve" id="icnList" class="btnMenuLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </a>
+                </div>
+
+
+                <div class="btn-menu">
+                    <p class="btnText">Messagerie</p>
+                    <a href="https://localhost:44312/Message" id="icnChat" class="btnMenuLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-dots" viewBox="0 0 16 16">
+                            <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
+                            <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                    </a>
+
+                </div>
+
+                <div class="btn-menu">
+                    <p class="btnText">Recherche</p>
+                    <a href="https://localhost:44312/Eleve/Search/9" id="icnParam" class="btnMenuLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </a>
+
+                </div>
+
+                <div class="btn-menu">
+                    <p class="btnText">Objet saisis</p>
+                    <a href="https://localhost:44312/ObjetSaisie/SearchByMatricule" id="icnParam" class="btnMenuLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+                            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
+                        </svg>
+                    </a>
+
+                </div>
+
+
+                <div class="btn-menu">
+                    <p class="btnText">Paramètres</p>
+                    <a id="icnParam" class="btnMenuLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+                            <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z" />
+                        </svg>
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+            
+
+            <div class="btn-menu" style="margin-top:130px;">
+                <p class="btnText">Déconnexion</p>
+                <a class="btnMenuLeft">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+
+
+        <script>
+
+
+            var icnMenu = document.getElementById("icnMenu");
+            var icnInscrip = document.getElementById("icnInscrip");
+            var icnList = document.getElementById("icnList");
+            var icnChat = document.getElementById("icnChat");
+            var icnParam = document.getElementById('icnParam');
+
+            var btnMenuLeft = document.getElementsByClassName("btnMenuLeft");
+
+            
+
+            var btnText = document.getElementById('btnText');
+
+            var divMenu = document.getElementsByClassName("divMenu");
+            var taille = divMenu[0];
+            
+            if (taille < 100) {
+                btnText.style.fontSize = '13px';
+            }
+
+        </script>
+        
+
+
+        <style>
+
+
+            #icnParam{
+            }
+
+
+            @*p{
+                position:absolute;
+                margin-left:55px;
+                text-align:center;
+                font-size:15px;
+            }*@
+
+
+
+            .btnMenuLeft {
+                height: 20px;
+                width: 20px;
+                transform: translateY(50%);
+                cursor: pointer;
+            }
+            .btnMenuLeft:hover{
+                
+            }
+            .divMenu {
+                position: fixed;
+                padding-left: 10px;
+                background: #d5d8dc;
+                display: flex;
+                flex-direction: column;
+                left: 0px;
+                top: 0px;
+                height: 100%;
+                width: 70px;
+                font-size: 0px;
+            }
+                .divMenu:hover{
+                    
+                }
+
+            .btn-menu {
+                height: 50px;
+                width: 50px;
+                display: flex;
+                justify-content: center;
+                vertical-align: middle;
+            }
+            .btn-menu:hover{
+                font-size:11px;
+            }
+
+            .btn-menu:hover{
+                cursor:pointer;
+            }
+
+            .btnText {
+                position: absolute;
+                margin-top: 35px;
+            }
+           
+               
+        </style>
+
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "SearchByMatricule";
+}
+
+
+<h1>Espace surveillant</h1>
+<br />
+<br />
+
+<div style="height:35px; width:100%; display:flex;flex-direction:row">
+
+    <input type="text" placeholder="Rechercher le matricule" name="" style="min-width:50%; height:35px" class="form-control" />
+
+
+    <button onclick="searchStudent()" id="valeurCherche" style="border:none ;outline:1px solid #ebebeb;background:#d5d5d5; height: 35px;width:100px; display: flex; justify-content: center; flex-direction: column">
+
+        <svg style="margin-left:23.5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+
+    </button>
+
+
+    <script>
+                        function searchStudent() {
+
+                            alert("hello word");
+                            var inp = document.getElementById('valeurCherche').value;
+                            document.location.href = "https://localhost:44312/ObjetSaisie/Search/" + inp;
+                        }
+
+
+
+                       @* var seacrhVal = document.getElementById("valeurCherche");
+                        seacrhVal.addEventListener("keydown", function (e) {
+                            if (e.keyCode === 13) {
+                                var inp = document.getElementById('valeurCherche').value;
+                                document.location.href = "https://localhost:44312/Eleve/Search/" + inp;
+                            }
+                        });*@
+
+    </script>
+
+@**@
+    @foreach(var p in @ViewBag.result)
+    {
+        <h1>@p.eleveName </h1>
+    }
+   
+
+</div>

@@ -1,0 +1,75 @@
+﻿@model novaSoft.Models.TicketDeSortie
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>TicketDeSortie</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.matriculeEleve, new { htmlAttributes = new { @class = "form-control", @placeholder = "Matricule" } })
+            @Html.ValidationMessageFor(model => model.matriculeEleve, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.eleveName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nom(s)" } })
+            @Html.ValidationMessageFor(model => model.eleveName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.eleveFirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Prénom(s)" } })
+            @Html.ValidationMessageFor(model => model.eleveFirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.classeEleve, new { htmlAttributes = new { @class = "form-control", @placeholder = "Classe" } })
+            @Html.ValidationMessageFor(model => model.classeEleve, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.motifDuTicket, new { htmlAttributes = new { @class = "form-control", @placeholder = "Motif du ticket", @width = "100px", @height = "100px" } })
+            @Html.ValidationMessageFor(model => model.motifDuTicket, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enregistrer le billet" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

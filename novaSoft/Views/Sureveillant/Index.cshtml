@@ -1,0 +1,193 @@
+﻿<h1>Espace surveillant</h1>
+<div style="height:100vh; width:100%; background:transparent; display:flex; flex-direction: row">
+
+
+    <div style="height:calc(70vh + 50px ); width: 70px; background:red; text-align:center">
+        <br />
+        <a onclick="action1()" id="supElev" style="font-size:12px; color:white">Supervision élèves</a><br /> <br />
+        <a onclick="action2()" id="suvAbs" style="font-size:12px; color:white">
+            Suivie des abscences
+        </a><br /> <br />
+        <a onclick="action3()" id="supProf" style="font-size:12px; color:white">Supervision prof</a><br /> <br />
+        <a onclick="action4()" id="supClass" style="font-size: 12px; color: white">
+            supervision des classes
+        </a><br /> <br />
+        <a onclick="action5()" id="gesAbs" style="font-size:12px; color:white">Gestion absence et retard </a><br /> <br />
+        <a onclick="action6()" id="gesMat" style="font-size:12px; color:white"> Gestion du materiel  </a><br /> <br />
+        <a onclick="action7()" id="gesEntSort" style="font-size:12px; color:white"> Gestion Entrée Sortie  </a><br /> <br />
+
+
+    </div>
+
+    <div style="background:transparent; height:100%; width: calc(100% - 100px); margin-left:50px ">
+
+        <div style="background: transparent; position: relative; height: 100%; width: 100%; display: none" id="divSupElev">
+           <h2>Supervision élève</h2>
+
+            <p>Affichage des élèves les plus indisciplinés,<br /> ceux dont les objets ont été pris. <br /> les élèves ayant subits ou provoqué une forme de violence<br /> les plainte des élèves; <br /> les élèves ayant été malade <br /> convocation des parents d'élèves </p>
+
+        </div>
+
+        <div style="background: transparent; position: relative; height: 100%; width: 100%; display: none" id="divSuvAbs">
+
+            <h2>Supervision absence</h2>ge
+            <p>Affichege des absences du jours<br /> affichage des absents de plus de 3 jour en rouge </p> <br /><br />
+
+            <p>Gestion des absences des profs qui seront absent ce jour et qui ont signalé leur absence.</p> <br /><br />
+            <p>Gestion des absences est claire et transparente. les demandes seront soumises d'un simple clic et transmise immédiatement au responsable hiérachique qui valide tout aussi rapidement.</p>
+            <br />
+        </div>
+
+        <div style="background: transparent; position: relative; height: 100%; width: 100%; display: none" id="divSupProf">
+            <h2>Supervision prof</h2>
+
+            <p>On peut voir l'heure d'arrivé des profs,<br /> affichage de 'lemploi du temps du prof,<br /> suivie du programme par prof </p>
+
+        </div>
+        
+        <div style="background: transparent; position: relative; height: 100%; width: 100%; display: none" id="divSupClass">
+            <h2>Supervision class</h2>
+            <p>On peut voir les classes qui sont en retad sur leur programme <br /><br /> </p>
+
+        </div>
+
+        <div style="background:#850909;position:relative; height:100%; width: 100%; display:none " id="divGesAbs">
+            <h2>Gestion absence</h2>
+
+        </div>
+
+        <div style="background:transparent;position:relative; height:100%; width: 100%;  display:flex " id="divGesMat">
+            
+            <div style="background:yellow; height:100vh; width: 100px;">
+                <br /><br /><br /><br />
+                <a>Ajout d'un materiel</a><br /><br />
+                <a>Supervision materiel</a><br /><br />
+                <a>Modifier un materiel</a><br /><br />
+                <a>Liste des materiaux</a>
+
+
+            </div>
+
+            <div >
+
+
+                <p>Suivi precis du materiel genre la classe où il se trouve l'heure à laquelle il a étét pris, qui l'a pris . la classe de la personne</p>
+
+
+                <div style="height:35px; width:100%; display:flex;flex-direction:row">
+
+                    <input type="text" placeholder="Rechercher" name="a" id="seacrhVal" style="min-width:50%;height:35px" />
+
+
+                    <button onclick="sendData()" style="border:none ;outline:1px solid blue;background:red; height: 35px;width:100px; display: flex; justify-content: center; flex-direction: column">
+
+                        <svg style="margin-left:23.5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+  
+
+    <script>
+
+        var supElev = document.getElementById("supElev");
+        var suvAbs = document.getElementById("suvAbs");
+        var supProf = document.getElementById("supProf");
+        var supClass = document.getElementById("supClass");
+        var gesAbs = document.getElementById("gesAbs");
+        var gesMat = document.getElementById("gesMat");
+
+        var divSupElev = document.getElementById("divSupElev");
+        var divSuvAbs = document.getElementById("divSuvAbs");
+        var divSupProf = document.getElementById("divSupProf");
+        var divSupClass = document.getElementById("divSupClass");
+        var divGesAbs = document.getElementById("divGesAbs");
+        var divGesMat = document.getElementById("divGesMat");
+
+
+        function action1() {
+            divSupElev.style = "display : flex;"
+            divSuvAbs.style = " display: none";
+            divSupProf.style = "display: none";
+            divSupClass.style = "display: none";
+            divGesAbs.style = "display: none";
+            divGesMat.style = "display: none";
+
+
+        }
+
+        function action2() {
+
+            divSupElev.style = "display: none"
+            divSuvAbs.style = " display : flex;";
+            divSupProf.style = "display: none";
+            divSupClass.style = "display: none";
+            divGesAbs.style = "display: none";
+            divGesMat.style = "display: none";
+
+        }
+
+        function action3() {
+            divSupElev.style = "display: none"
+            divSuvAbs.style = " display: none";
+            divSupProf.style = "display : flex";
+            divSupClass.style = "display: none";
+            divGesAbs.style = "display: none";
+            divGesMat.style = "display: none";
+        }
+
+        function action4() {
+
+            divSupElev.style = "display: none"
+            divSuvAbs.style = " display: none";
+            divSupProf.style = "display: none";
+            divSupClass.style = "display : flex";
+            divGesAbs.style = "display: none";
+            divGesMat.style = "display: none";
+
+        }
+
+        function action5() {
+            divSupElev.style = "display: none"
+            divSuvAbs.style = " display: none";
+            divSupProf.style = "display: none";
+            divSupClass.style = "display: none";
+            divGesAbs.style = "display : flex";
+            divGesMat.style = "display: none";
+        }
+        function action6() {
+            divSupElev.style = "display: none"
+            divSuvAbs.style = " display: none";
+            divSupProf.style = "display: none";
+            divSupClass.style = "display: none";
+            divGesAbs.style = "display: none";
+            divGesMat.style = "display: flex";
+        }
+
+    </script>
+
+
+
+
+
+</div>
+
+
+<style>
+
+    a:hover{
+        cursor:pointer;
+    }
+</style>
+
+
+

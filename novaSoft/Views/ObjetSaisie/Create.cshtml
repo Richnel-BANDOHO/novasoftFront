@@ -1,0 +1,169 @@
+﻿@model novaSoft.Models.ObjetSaisie
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Espace surveillant</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Objets saisis</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        
+    <div style=" display:flex; flex-direction:row; justify-content:space-between">
+
+        <div style="width:60%">
+
+            <div class="form-group">
+              
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.matriculeEleve, new { htmlAttributes = new { @class = "form-control", @placeholder = "Matricule de l'élève" } })
+                    @Html.ValidationMessageFor(model => model.matriculeEleve, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+               
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.objetName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Objet saisie" } })
+                    @Html.ValidationMessageFor(model => model.objetName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+              
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.auteurSaisie, new { htmlAttributes = new { @class = "form-control", @placeholder = "Auteur de la saisie" } })
+                    @Html.ValidationMessageFor(model => model.auteurSaisie, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+              
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.condistionDeSaisie, new { htmlAttributes = new { @class = "form-control", @placeholder = "Description de la saisie", rows ="7" } })
+                    @Html.ValidationMessageFor(model => model.condistionDeSaisie, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Enregistrer" class="btn btn-default" />
+                </div>
+            </div>
+
+        </div>
+
+
+        <div style="width:50%">
+
+           
+
+                <!--<div style="height:35px; width:100%; display:flex;flex-direction:row">
+
+                    <input type="text" placeholder="Rechercher le matricule" name="" style="min-width:50%;height:35px"  class="form-control"/>
+
+
+                    <button onclick="searchStudent()" id="valeurCherche" style="border:none ;outline:1px solid #ebebeb;background:#d5d5d5; height: 35px;width:100px; display: flex; justify-content: center; flex-direction: column">
+
+                        <svg style="margin-left:23.5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+
+                    </button>
+
+
+                    <script>
+                        function searchStudent() {
+
+                            alert("hello word");s
+                            var inp = document.getElementById('valeurCherche').value;
+                            document.location.href = "https://localhost:44312/ObjetSaisie/Search/" + inp;
+                        }-->
+
+
+
+                       @* var seacrhVal = document.getElementById("valeurCherche");
+                        seacrhVal.addEventListener("keydown", function (e) {
+                            if (e.keyCode === 13) {
+                                var inp = document.getElementById('valeurCherche').value;
+                                document.location.href = "https://localhost:44312/Eleve/Search/" + inp;
+                            }
+                        });*@
+
+                    <!--</script>
+
+                </div>-->
+
+            
+
+
+            <div style="height:37vh; width:385px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;padding:10px; margin-top:15px;">
+
+                <div style="height:75px; width:100%;background:#9d73fc; display:flex; flex-direction:row;">
+                    <div style="margin:10px;height:55px; width:55px; background:yellow; ">
+
+                    </div>
+
+                    <div style=" width:200px;padding-left:10px; height:75px;padding-top:5px;">
+
+                        <label>Richnel</label>
+                        <label>Stanic</label><br />
+
+                        <label style="color:#e8e6e6; font-size:12px; transform:translateY(-7px)">205JME1972</label><br />
+
+
+                        <label style="color:#e8e6e6; font-size:12px; transform:translateY(-20px)">Classe</label>
+
+                    </div>
+
+                </div>
+             
+                <div style="height:120px; width:100%;background:#D7F8E8; padding:5px; margin-top:15px;">
+                    <h4 style="transform: translateY(-0px); font-size:14px;">Sous la tutelle de</h4>
+                    
+                    <label style="font-size: 12px;">Mr BANDOHO </label>
+                    <label style="font-size: 12px;">Aimé</label><br />
+                    <label style="font-size: 12px;">  
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                             <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>  06 941 31 70
+                           
+                     </label><br />
+                    <label style="font-size: 12px;"> 
+                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-geo" viewBox="0 0 16 16">
+                               <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
+                        </svg>  Siafoumou avenue moe taty 1er
+                    </label>
+
+                </div>
+                
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+           
+
+        </div>
+        
+        
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

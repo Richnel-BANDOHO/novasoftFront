@@ -1,0 +1,74 @@
+﻿@model novaSoft.Models.Message
+
+@{
+    ViewBag.Title = "Message";
+}
+
+<h2>Message</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Message</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+    <div style="display:flex; flex-direction:row">
+
+        <div style="height:100vh; width:400px;padding-right:35px; overflow-x:scroll ;background:white; display:flex; justify-content:space-around; flex-direction:column">
+           
+            <div>
+                <input type="text" style="width:100%;height:35px;margin-top:25px;margin-bottom:25px;" />
+            </div>
+
+            @for (int i=0; i<10; i++)
+            {
+                <div style="display:flex;flex-direction:row;min-height:125px; width:100%; background:blue;margin-bottom:5px;">
+                   <div style="display:flex; justify-content:center; height:50px; width:50px;">
+                        <div style="height:40px; width:40px; border-radius:100%; background:red;margin-top:5px;"></div>
+                   </div> 
+                </div>
+            }
+
+        </div>
+
+        <div style="background:green; width:100%; margin-top:85px">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.receiverId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.receiverId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.receiverId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.messageContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.messageContent, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.messageContent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Envoyer" class="btn btn-default" />
+                </div>
+            </div>
+
+        </div>
+</div>
+
+    
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

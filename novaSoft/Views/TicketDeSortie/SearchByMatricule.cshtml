@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "SearchByMatricule";
+}
+
+<h2>SearchByMatricule</h2>
+
+
+<form>
+
+    <div style="height:35px; width:100%; display:flex;flex-direction:row">
+
+        <input type="text" placeholder="Rechercher" name="matricule" style="min-width:50%;height:35px" />
+
+
+        <button type="submit" style="border:none ;outline:1px solid blue;background:red; height: 35px;width:100px; display: flex; justify-content: center; flex-direction: column">
+
+            <svg style="margin-left:23.5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+
+            </svg>
+
+        </button>
+
+    </div>
+
+</form>
+
+
+<br />
+@*<p>@ViewBag.result.Count Elève(s) trouvé(s)</p>*@
+<br />
+
+
+
+<div style="        width: 100%;
+            height: auto;
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            background: white;
+            padding: 25px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    ">
+
+
+
+   @* @foreach (var p in ViewBag.result)
+    {
+        <div style=" background:white;padding: 5px; max-height:210px; height: auto;min-width: 200px;margin-left: 15px; margin-top: 15px;box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; ">
+
+
+            <div id="profilPhoto" style="height:42px; width: 42px;background: #7200c3; border-radius: 5px; margin:10px">
+                <label class="infoNom"><a href="@Url.Action("EleveContent")/@p.eleveId"> @p.eleveName @p.eleveFirstName </a> </label>
+                <label class="infoNom" style="margin-top:22px;color:#c6c6c6">@p.eleveClasse @p.eleveSerie</label>
+            </div>
+
+            <br />
+
+
+            <div style="height:auto; width:100%; padding: 10px;">
+
+                <label class="eleveInfo">
+                    <img class="iconeEleve" src="https://icons.veryicon.com/png/o/business/multi-color-financial-and-business-icons/dollar-15.png" /> Dernier paiement
+                </label><br />
+                <label class="eleveInfo">
+                    <img class="iconeEleve" src="https://www.icone-png.com/png/19/19043.png" /> Dernier montant
+                </label><br />
+
+            </div>
+
+        </div>
+
+    }*@
+
+</div>
+
+
+<style>
+
+    a {
+        text-decoration: none;
+    }
+
+    .infoNom {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 7px;
+        font-size: 12px;
+    }
+
+    .eleveInfo {
+        font-size: smaller;
+        color: #b6b6b6;
+    }
+
+    .iconeEleve {
+        width: 17px;
+        height: 17px;
+    }
+</style>
